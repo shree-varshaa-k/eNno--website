@@ -5,10 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>eNno</title>
     <link href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAdVBMVEVHcEwInesfmeZgwPIOqvJAretIqec6p+c7qOhTqudtve0rsPIPn+vC9vwWjuA6rO0ZrfM7vfczsPAan+sJid42itccmOYJqvMSk+QQddEcouwndMwskd8BrPUApfEAmusAg9wAoO4Aid8AjeMBlOcCetcDZslqDVudAAAAHXRSTlMA9b4z7FlJCBB7IL92CYOJ22uf57+A3fny7dSzsuICpssAAAE/SURBVDiNhZSLkkQwEEVjSBCbCWY8Z70i4/8/cTovy5bsHlVKOTfdXQSUOu6aSl0SGqOd7m2ZASGEPrcl2QPEKGOBVayAaFPmEtwEhAmsGilXmboA/d7Xr06Dl/XehdS2uk4op5hk6Zow/ARujofWQB/ugyZHwsz46YHRNbj9J0Bq7aecHO/GO0kaTIsiC4+B8P5l4bnxAT/VpQ8ZGBbtxyUq2DHAcKD66rWjpsnLUw/GrTV+gKM5T0GzyWmwhl9z9ra483BZxscmRR4pGrt8GKHieQyCFTyLbACmTtEFtMhdQGaXDzsudI0FXmt/GUCs1AHYHvV1ABFVYoItdPMEEhWQsBO5J4BgzHGG7Uz+CEj4WJ6Jx9NoGN/bu/MWwM0gtq2rYo9nmfG+BqiI5m17Ye963ipNPToOq1f18wP4AMdUMaFZkNZOAAAAAElFTkSuQmCC" rel="icon">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="Enowebsite.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css" integrity="sha512-OTcub78R3msOCtY3Tc6FzeDJ8N9qvQn1Ph49ou13xgA9VsH9+LRxoFU6EqLhW4+PKRfU+/HReXmSZXHEkpYoOA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+   
+    <link rel="stylesheet" href="Enowebsite.css">
+    <script type="text/javascript">
+      //  window.addEventListener("resize", function() {
+      //    "use strict"; window.location.reload(); 
+      //  });
+      
+      
+        document.addEventListener("DOMContentLoaded", function(){
+              
+      
+            /////// Prevent closing from click inside dropdown
+          document.querySelectorAll('.dropdown-menu').forEach(function(element){
+            element.addEventListener('click', function (e) {
+              e.stopPropagation();
+            });
+          })
+      
+      
+      
+          // make it as accordion for smaller screens
+          if (window.innerWidth < 992) {
+      
+            // close all inner dropdowns when parent is closed
+            document.querySelectorAll('.navbar .dropdown').forEach(function(everydropdown){
+              everydropdown.addEventListener('hidden.bs.dropdown', function () {
+                // after dropdown is hidden, then find all submenus
+                  this.querySelectorAll('.submenu').forEach(function(everysubmenu){
+                    // hide every submenu as well
+                    everysubmenu.style.display = 'none';
+                  });
+              })
+            });
+            
+            document.querySelectorAll('.dropdown-menu a').forEach(function(element){
+              element.addEventListener('click', function (e) {
+          
+                  let nextEl = this.nextElementSibling;
+                  if(nextEl && nextEl.classList.contains('submenu')) {  
+                    // prevent opening link if link needs to open dropdown
+                    e.preventDefault();
+                    console.log(nextEl);
+                    if(nextEl.style.display == 'block'){
+                      nextEl.style.display = 'none';
+                    } else {
+                      nextEl.style.display = 'block';
+                    }
+      
+                  }
+              });
+            })
+          }
+          // end if innerWidth
+      
+        }); 
+  
+      </script>
+  </head>
+
 </head>
 <body>
     <!-- navbar starts -->
@@ -26,36 +86,40 @@
           <div class="collapse navbar-collapse " id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item ">
-                <a class="nav-link" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" href="#hh">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#">About</a>
+                <a class="nav-link " href="#abt">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#">Services</a>
+                <a class="nav-link " href="#ss">Services</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#">Portfolio</a>
+                <a class="nav-link " href="#pts">Portfolio</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="#">Team</a>
+                <a class="nav-link " href="#teams">Team</a>
               </li>
               <li class="nav-item dropdown">
-                <a class="nav-link " href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Dropdown
-                  <i class="fa-solid fa-angle-down"></i>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="#">Drop Down 1</a>
-                  <a class="dropdown-item" href="#"> Deep Drop Down 1</a>
-                 <a class="dropdown-item" href="#">Drop Down 2</a>
-                  <a class="dropdown-item" href="#">Drop Down 3</a>
-                  <a class="dropdown-item" href="#">Drop Down 4</a>
-                </div>
-                 </li>
-              <li class="nav-item">
-                <a class="nav-link " href="#">Contact</a>
-              </li>
+              <a class="nav-link" href="#" data-bs-toggle="dropdown">Dropdown<i class="fa-solid fa-angle-down"></i></a>
+                <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#"> Dropdown item 1 </a></li>
+                
+                <li class="nav-item dropdown"><a class="dropdown-item Deep-Dropdown nav-link" data-bs-toggle="dropdown" href="#"> Deep Dropdown<i class="fa-solid fa-angle-right"></i> </a>
+                  <ul class="submenu dropdown-menu">
+                    <li class="deep"><a class="dropdown-item" href="#">Deep Dropdown 1</a></li>
+                    <li class="deep"><a class="dropdown-item" href="#">Deep Dropdown 2</a></li>
+                    <li class="deep"><a class="dropdown-item" href="#">Deep Dropdown 3</a></li>
+                    <li class="deep"><a class="dropdown-item" href="#">Deep Dropdown 4</a></li>
+                  </ul>
+                </li>
+                
+                <li><a class="dropdown-item" href="#"> Dropdown item 3 </a></li>
+                <li><a class="dropdown-item" href="#"> Dropdown item 4 </a></li>
+                </ul>
+            </li>
+
+
             </ul>
             <button type="button" class="btn start">Get Started</button>
           </div>
@@ -65,16 +129,16 @@
 
     <!-- navbar ends-->
 <!-- about start-->
-<section>
+<section id="hh">
   <div class="container about">
     <div class="row">
       <div class="col-md-6">
-        <h1 class="mt-5 pt-5 pb-2 px-3">Elegant and creative <br>solutions</h1>
+        <h1 class="mt-5 pt-5 pb-2 px-3 ee">Elegant and creative <br>solutions</h1>
         <h3 class="py-4 px-3 we">We are team of talented designers making websites with Bootstrap</h3>
       <div class="d-flex">
         <button type="button" class="btn  mx-3 get-btn">Get Started</button>
         <div class="watch">
-             <i class="fa-regular fa-circle-play"></i><span class="watch">Watch Vedio</span>
+             <i class="fa-regular fa-circle-play vp"></i><span class="watch">Watch Vedio</span>
          </div>
       </div>
       </div>
@@ -101,14 +165,14 @@
     </div>
       <div class="col-md-4 ">
         <div class="card p-3">
-        <i class="fa-solid fa-laptop"></i>
+          <i class="fa-solid fa-list-check"></i>
         <h5 class="py-3">Dolor Sitema</h5>
         <p>Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
       </div>
     </div>
       <div class="col-md-4 ">
         <div class="card p-3">
-        <i class="fa-solid fa-laptop"></i>
+          <i class="fa-solid fa-square-poll-vertical"></i>
         <h5 class="py-3">Sed ut perspiciatis</h5>
         <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur
           <br>
@@ -140,26 +204,26 @@
           <div class="row">
             <div class="col-lg-3 banner2">
               <center>
-                <h2>232</h2>
-                <p>Clients</p>
+                <h2 class="num">232</h2>
+                <p >Clients</p>
               </center>
             </div>
             <div class="col-lg-3">
               <center>
-                <h2>521</h2>
-                <p>Projects</p>
+                <h2 class="num">521</h2>
+                <p >Projects</p>
               </center>
             </div>
             <div class="col-lg-3">
               <center>
-                <h2>1463</h2>
-                <p>Hours of Support</p>
+                <h2 class="num">1463</h2>
+                <p >Hours of Support</p>
               </center>
             </div>
             <div class="col-lg-3">
               <center>
-                <h2>15</h2>
-                <p>Hard Workers</p>
+                <h2 class="num">15</h2>
+                <p >Hard Workers</p>
               </center>
             </div>
             
@@ -174,7 +238,7 @@
 </section>
 <!-- card ends-->
 <!-- service starts-->
-<section class="services mt-5">
+<section class="services mt-5" id="ss">
   <div class="container ser-bt">
     <h1 class="behind">SERVICES</h1>
     <h3 class="front">SERVICES</h3>
@@ -235,7 +299,7 @@
 
 <!-- service ends-->
 <!-- portfolio starts-->
-<section class="portfolio mt-5">
+<section class="portfolio mt-5" id="pts">
   <div class="container pt">
     <h1 class="behind">PORTFOLIO</h1>
     <h3 class="front">PORTFOLIO</h3>
@@ -412,79 +476,85 @@
 </section>
 <!-- portfolio starts-->
 <!-- testimonial starts -->
-<section class="testimonial mt-5">
+<section class="testimonials mt-5">
   <div class="container ">
-    
     <h1 class="behind">TESTIMONIALS</h1>
     <h3 class="front">TESTIMONIALS</h3>
-    <br>
-    
-  <p class="service-para">Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
-  <div class="Owl-carousel Owl-theme">
-<div class="container main-box">
-  <div class="whcard">
-    <p class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae placeat quasi, obcaecati harum labore nostrum, suscipit illo iusto similique cum assumenda id nisi hic blanditiis eveniet, qui sit perspiciatis in!</p>
+    <p class="service-para pb-2">Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
+<div class="owl-carousel owl-theme">
+<div class="main-box">
+<div class="wh-card">
+  <p class="align"><i><i class="fa-solid fa-quote-left quotes"></i> Lorem Ipsum dolor sit amet, connectetur dadipiscing elit. 
+    Consequatur, rem hic quidam optio qui enim officia quisquam exercitationem pariatur ipsa velit id aperiam sunt cuidate 
+    ratione obcaecati. <i class="fa-solid fa-quote-right quotes"></i></i></p>
+</div>
+<div class="profile">
+  <img src="./img/testimonials-1.jpg" >
+  <h3>Saul Goodman</h3>
+  <p>Ceo & Founder</p>
+</div>
+</div>
 
-  </div>
-  <div class="prof">
-    <img src="./img/testimonials-1.jpg">
-    <h4>saul goldman</h4>
-    <p>ceo & founder</p>
-  </div>
+<div class="main-box">
+<div class="wh-card">
+  <p class="align"><i><i class="fa-solid fa-quote-left quotes"></i> Export tempor illum tamen malis malis eram quoe irure esse 
+    labore quern cilum quid cillum eram mailis quorum velit fore eram velit sunt aliqua noster fugiot irure amet legam anim culpa.<br>
+     <i class="fa-solid fa-quote-right quotes"></i></i></p>
 </div>
-<div class="container main-box">
-  <div class="whcard">
-    <p class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae placeat quasi, obcaecati harum labore nostrum, suscipit illo iusto similique cum assumenda id nisi hic blanditiis eveniet, qui sit perspiciatis in!</p>
+<div class="profile">
+  <img src="./img/testimonials-2.jpg" >
+  <h3>Sara Wilson</h3>
+  <p>Designer</p>
+</div>
+</div>
 
-  </div>
-  <div class="prof">
-    <img src="./img/testimonials-2.jpg">
-    <h4>saul goldman</h4>
-    <p>ceo & founder</p>
-  </div>
+<div class="main-box">
+<div class="wh-card">
+  <p class="align"><i><i class="fa-solid fa-quote-left quotes"></i>Enim nisi quem export duis labore cillum quoe magna enim sint quorum nulla quem
+    veniam duis minim tempor labore quem eraro duis noster oute amet eram fore quis sint minim.<br><i class="fa-solid fa-quote-right quotes"></i></i></p>
 </div>
-<div class="container main-box">
-  <div class="whcard">
-    <p class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae placeat quasi, obcaecati harum labore nostrum, suscipit illo iusto similique cum assumenda id nisi hic blanditiis eveniet, qui sit perspiciatis in!</p>
+<div class="profile">
+  <img src="./img/testimonials-3.jpg" alt="">
+  <h3>Jena Karlis</h3>
+  <p>Store Owner</p>
+</div>
+</div>
 
-  </div>
-  <div class="prof">
-    <img src="./img/testimonials-3.jpg">
-    <h4>saul goldman</h4>
-    <p>ceo & founder</p>
-  </div>
+<div class="main-box">
+<div class="wh-card">
+  <p class="align"><i><i class="fa-solid fa-quote-left quotes"></i> Fugiat enim eram quoe cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis
+    veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam. <i class="fa-solid fa-quote-right quotes"></i></i></p>
 </div>
-<div class="container main-box">
-  <div class="whcard">
-    <p class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae placeat quasi, obcaecati harum labore nostrum, suscipit illo iusto similique cum assumenda id nisi hic blanditiis eveniet, qui sit perspiciatis in!</p>
+<div class="profile">
+  <img src="./img/testimonials-4.jpg" alt="">
+  <h3>Matt Brandon</h3>
+  <p>Freelancer</p>
+</div>
+</div>
 
-  </div>
-  <div class="prof">
-    <img src="./img/testimonials-4.jpg">
-    <h4>saul goldman</h4>
-    <p>ceo & founder</p>
-  </div>
+<div class="main-box">
+<div class="wh-card">
+  <p class="align"><i><i class="fa-solid fa-quote-left quotes"></i> Quosis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim 
+    enim culpa labore duis sunt culpa nullo illum cillum fugiot legarn esse veniam culpa fore nisi cillum quid. <i class="fa-solid fa-quote-right quotes"></i></i></p>
 </div>
-<div class="container main-box">
-  <div class="whcard">
-    <p class="text-justify">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Recusandae placeat quasi, obcaecati harum labore nostrum, suscipit illo iusto similique cum assumenda id nisi hic blanditiis eveniet, qui sit perspiciatis in!</p>
-
-  </div>
-  <div class="prof">
-    <img src="./img/testimonials-5.jpg">
-    <h4>saul goldman</h4>
-    <p>ceo & founder</p>
-  </div>
+<div class="profile">
+  <img src="./img/testimonials-5.jpg" alt="">
+  <h3>John Larson</h3>
+  <p>Enterpreneur</p>
 </div>
 </div>
-  </div>
+</div>
+</div>
 </section>
+
+
+
     <!-- testimonial ends -->
 
     <!-- contacts starts -->
     
 <section  class="contact">
-  <div class="container">
+  <div class="container ">
 
     <div class="text-center">
       <h3>Call To Action</h3>
@@ -500,7 +570,7 @@
     <!-- contacts ends -->
 
     <!-- team starts -->
-<section class="team">
+<section class="team py-5 " id="teams">
   
     <div class="container">
       <div class="cc">
@@ -576,7 +646,7 @@
   </section>  
     <!-- team ends -->
     <!-- contact2 starts -->
-    <section class="contact2 mt-5 p-5">
+    <section class="contact2 mt-5 p-5" id="cc">
       <div class="container ">
         
         <h1 class="behind">CONTACT</h1>
@@ -584,42 +654,142 @@
         <br>
         <p class="contact22">Sit sint consectetur velit quisquam cupiditate impedit suscipit alias</p>
       <div class="row">
-        <div class="col-md-4">
-          <div class="details">
-            <div class="row">
-              <div class="col-md-2">
-                   <div class="iconholder">
-                    <i class="fa-solid fa-location-dot"></i>
-                   </div>
+        <div class="col-md-5">
+         <div class="details">
+            <div class="row detailbox">
+              <div class="col-md-2 iconbox">
+                <div class="iconholder">
+                  <i class="fa-solid fa-location-dot"></i>
+                </div>
+
               </div>
-              <div class="colmd-10">
-                   <h3>Location</h3>
-                   <p>A108 Adam Street, New York, NY 535022</p>
+              <div class="col-md-10">
+                <h5 class="top">LOCATION</h5>
+                <P class="tops">A108 Adam Street, New York, NY 535022</P>
               </div>
+              
+              <div class="col-md-2 iconbox">
+                <div class="iconholder">
+                  <i class="fa-solid fa-envelope"></i>
+                </div>
+
+              </div>
+              <div class="col-md-10">
+                <h5 class="top">Email:</h5>
+                <P class="tops">info@example.com</P>
+              </div>
+              <div class="col-md-2 iconbox">
+                <div class="iconholder">
+                  <i class="fa-solid fa-mobile"></i>
+                </div>
+
+              </div>
+              <div class="col-md-10">
+                <h5 class="top">Call:</h5>
+                <P class="tops" >+1 5589 55488 55s</P>
+              </div>
+                         <div class="row">
+                          <div class="map p-3">
+                            <iframe class="map-wid" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d252543.7898274902!2d76.75935100577122!3d8.499698297379796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b05bbb805bbcd47%3A0x15439fab5c5c81cb!2sThiruvananthapuram%2C%20Kerala!5e0!3m2!1sen!2sin!4v1706200809052!5m2!1sen!2sin" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                          </div>
+
+                        </div>
+          </div>
+          </div>
+        
+</div>
+        <div class="col-md-7">
+        <div class="form"> 
+          <form>
+          <div class="row">
+            
+              
+              <div class="col-md-6 mt-5 mb-4">
+                <label>Your Name</label>
+                <input class="form-control" type="text">
+              </div>
+              <div class="col-md-6 mt-5 mb-4">
+                <label>Your Email</label>
+                <input class="form-control" type="email">
+              </div>
+              <div class="col-md-12 mb-4">
+                <label>Subject</label>
+                <input class="form-control" type="text">
+              </div> 
+              <div class="col-md-12 mb-4">
+                <label>Message</label>
+                <textarea class="form-control fc"  rows="6" ></textarea>
+              </div> 
+              
             </div>
+            <center>
+              <button type="button" class="btn msg">send message</button>
+            </center>
+            
           </div>
+          </form>
         </div>
-          <div class="col-md-8">
-
-          </div>
-
       </div>
       </div>
       </section>
     <!-- contact2 ends -->
+     <!-- footer starts -->
+     <footer class="footer p-3 ">
+      <div class="container ff">
+        <center>
+        <h3>eNno</h3>
+        <p>Et aut eum quis fuga eos sunt ipsa nihil. Labore corporis magni eligendi fuga maxime saepe commodi placeat.</p>
+        <div class="d-flex sub">
+        <input type="text" class="form-control"  placeholder="Enter your E-mail">
+        <button type="button" class="btn btn-success subs">Subscribe</button>
+        
+        
+      </div>
+      </center>
+      <center>
 
- 
+     
+      <div class="icon">
+        <i class="fa-brands fa-twitter"></i>&nbsp;
+        <i class="fa-brands fa-facebook"></i>&nbsp;
+        <i class="fa-brands fa-instagram"></i>&nbsp;
+        <i class="fa-brands fa-skype"></i>&nbsp;
+        <i class="fa-brands fa-linkedin"></i>&nbsp;
+      </div>
+    </center>
+      </div>
+    </footer>
+    <div class="container-fluid footerbottom">
+      <div class="copy">
+        <center>
+          <div class="copyright">
+            © Copyright <strong><span>eNno</span></strong>. All Rights Reserved
+          </div>
+          <div class="credits">
+           
+            Designed by BootstrapMade</a>
+          </div>
+      </center>
+      </div>
+    </div>
+      <!-- footer  ends -->
+<!-- arrow starts -->
+<div class="arrow">
+ <a href "#"> <i class="fa-solid fa-arrow-up"></i></a>
+</div>
+<!-- arrow starts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> 
 <script>
     $('.owl-carousel').owlCarousel({
-      autoplay:true,
-      autoplayHoverPause:true,
-      dots:true,
-    loop:true,
-    margin:10,
-    nav:true,
-    responsive:{
+autoplay:true,
+autoplayHoverPause:true,
+dots:true,
+loop:true,
+margin:0,
+
+   responsive:{
         0:{
             items:1
         },
@@ -627,10 +797,11 @@
           items:2
         },
         992:{
+            dotsEach:1,
             items:3
         },
         1400:{
-          dotsEach:2,
+          dotsEach:1,
             items:3
         }
     }
